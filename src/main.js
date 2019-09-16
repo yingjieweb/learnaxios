@@ -8,7 +8,7 @@ new Vue({
   render: h => h(App),
 }).$mount('#app')
 
-//1.axios的基本使用
+/*//1.axios的基本使用
 axios({
   url:'http://123.207.32.32:8000/api/v1/home/multidata',
   method:'get'
@@ -71,7 +71,7 @@ axios.all([axios({
   console.log(res2);
 }))
 
-//5.axios的相关配置信息的改进
+//5.axios的相关配置信息的改进，使用的axios和对应的全局的配置在进行网络请求
 axios.defaults.baseURL ='http://123.207.32.32:8000/api/v1'
 axios.defaults.timeout = 5000
 axios.all([axios({
@@ -86,3 +86,76 @@ axios.all([axios({
   console.log(res1);
   console.log(res2);
 }))
+
+
+//6.创建对应的axios的实例,这样就不用全局的配置了,这样更灵活,针对服务器不同创建不同的实例
+const instance1 = axios.create({
+  baseuRL:'http://123.207.32.32:8000',
+  timeout:5000
+})
+
+instancel({
+  ur1:'/home/multidata'
+}).then(res =>{
+  console.log(res);
+})
+instance1({
+  ur1: '/home/data',
+  params: {
+    type: 'pop',
+    page: 1
+  }
+}).then(res =>{
+  console.log(res);
+})
+
+
+const instance2 = axios.create({
+  baseuRL:'http://123.207.32.32:8000',//这边就可以单独设置一个接口
+  timeout:10000;
+  //header:{}
+})*/
+
+
+//7.封装一个request模块
+import {request} from "./network/request"
+
+//封装方式一的使用方法
+/*request({
+  url:'http://123.207.32.32:8000'
+},res => {
+  console.log(res);
+},err => {
+  console.log(err);
+})*/
+
+//封装方式二的请求方法
+/*request({
+  baseConfig:{
+
+  },
+  success:function (res) {
+
+  },
+  failure:function (err) {
+
+  }
+})*/
+
+//封装方式三的请求方法
+/*request({
+  url:'/home/multidata'
+}).then(res => {
+  console.log(res)
+}).catch(err =>{
+  console.log(err)
+})*/
+
+//封装方式四的请求方法
+request({
+  url:'/home/multidata'
+}).then(res => {
+  console.log(res)
+}).catch(err =>{
+  console.log(err)
+})
