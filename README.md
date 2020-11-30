@@ -1,4 +1,4 @@
-# learnaxios
+# gate-code
 
 ## Project setup
 ```
