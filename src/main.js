@@ -8,11 +8,10 @@ new Vue({
 }).$mount('#app')
 
 
+import {request} from './network/request'
 //封装方式的请求方法
-request({
-  url:'/home/multidata'
-}).then(res => {
+request({url: '/home/multidata'}).then(res => {
   console.log(res)
-}).catch(err =>{
+}).catch(err => {
   console.log(err)
 })
