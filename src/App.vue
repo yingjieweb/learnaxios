@@ -1,47 +1,34 @@
 <template>
   <div id="app">
-    <div class="login">
-      <div class="title">
-        <h1>生成通行许可</h1>
-      </div>
-      <div class="inputItem">
-        <label>姓名：<br>
-          <input type="text" v-model="form.name">
-        </label>
-      </div>
-      <div class="inputItem">
-        <label>学号：<br>
-          <input type="text" v-model="form.stuId">
-        </label>
-      </div>
-      <div class="inputItem">
-        <label>入门名（格式：xx校区xx门）<br>
-          <input type="text" v-model="form.gateName">
-        </label>
-      </div>
-      <div class="preview">
-        <button>预览</button>
-      </div>
-    </div>
-    <div class="code">
-      <div class="header"></div>
-      <div class="content"></div>
-      <div class="footer"></div>
-    </div>
+    <Inputt v-if="codeVisible" @showCode="showCode"></Inputt>
+    <Outputt v-else :form="form"></Outputt>
   </div>
 </template>
 
 <script>
+  import Inputt from './views/inputt'
+  import Outputt from './views/outputt'
+
   export default {
     name: 'app',
+    components: {
+      Inputt,
+      Outputt
+    },
     data() {
       return {
+        codeVisible: true,
         form: {
           name: '',
           stuId: '',
           gateName: ''
         },
-        codeVisible: false
+      }
+    },
+    methods: {
+      showCode(form) {
+        this.codeVisible = false
+        this.form = form
       }
     }
   }
@@ -54,12 +41,7 @@
     box-sizing: border-box;
   }
 
-  .login, .code {
-    height: 100vh;
-    border: 1px solid red;
-  }
-
-  .inputItem {
-    border: 1px solid red;
+  #app {
+    max-width: 420px;
   }
 </style>
