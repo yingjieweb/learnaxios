@@ -3,7 +3,10 @@
     <div class="title">东北大学通行验证</div>
     <div class="arrow">
       <div class="wrapper">
-        <img src="../../src/assets/arrow.png" alt="">
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="axis"></div>
+        <!--<img src="../../src/assets/arrow.png" alt="">-->
       </div>
     </div>
     <div class="timer">时间：{{currentTime}}</div>
@@ -70,11 +73,9 @@
     height: 260px;
     margin-top: 40px;
     background-color: #046635;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     border-radius: 50%;
     animation: bump 0.98s linear infinite;
+    position: relative;
   }
 
   @keyframes bump {
@@ -86,8 +87,35 @@
     }
   }
 
-  .arrow > .wrapper > img {
-    width: 260px;
+
+  .arrow > .wrapper > .left {
+    height: 30px;
+    width: 110px;
+    border-radius: 10px;
+    background-color: white;
+    position: absolute;
+    top: 82px;
+    left: 46px;
+    transform: rotateZ(-45deg);
+  }
+  .arrow > .wrapper > .right {
+    height: 30px;
+    width: 110px;
+    border-radius: 10px;
+    background-color: white;
+    position: absolute;
+    top: 82px;
+    right: 46px;
+    transform: rotateZ(45deg);
+  }
+  .arrow > .wrapper > .axis {
+    width: 30px;
+    height: 130px;
+    border-radius: 10px;
+    background-color: white;
+    position: absolute;
+    top: 80px;
+    left: 115px;
   }
 
   .timer {
