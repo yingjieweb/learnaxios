@@ -6,7 +6,7 @@
         <img src="../../src/assets/arrow.png" alt="">
       </div>
     </div>
-    <div class="timer">时间：2020-12-02 21:19:38</div>
+    <div class="timer">时间：{{currentTime}}</div>
     <div class="info">
       <div><span class="key">学工号</span>：<span>{{form.stuId}}</span></div>
       <div><span class="key">姓名</span>：<span>{{form.name}}</span></div>
@@ -26,12 +26,33 @@
           return {}
         }
       }
+    },
+    created() {
+      this.getCurrentTime()
+    },
+    data() {
+      return {
+        currentTime: ''
+      }
+    },
+    methods: {
+      getCurrentTime() {
+        let date = new Date()
+        let YY = date.getFullYear()
+        let MM = parseInt(date.getMonth()) < 10 ? '0'+date.getMonth() : date.getMonth()
+        let DD = parseInt(date.getDay()) < 10 ? '0'+date.getDay() : date.getDay()
+        let hh = parseInt(date.getHours()) < 10 ? '0'+date.getHours() : date.getHours()
+        let mm = parseInt(date.getMinutes()) < 10 ? '0'+date.getMinutes() : date.getMinutes()
+        let ss = parseInt(date.getSeconds()) < 10 ? '0'+date.getSeconds() : date.getSeconds()
+
+        this.currentTime = `${YY}-${MM}-${DD} ${hh}:${mm}:${ss}`
+      }
     }
   }
 </script>
 
 <style scoped>
-  .code > .title {
+  .title {
     color: #046635;
     font-size: 34px;
     text-align: center;
