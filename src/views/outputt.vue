@@ -69,8 +69,8 @@
   }
 
   .arrow > .wrapper {
-    width: 260px;
-    height: 260px;
+    width: 240px;
+    height: 240px;
     margin-top: 40px;
     background-color: #046635;
     border-radius: 50%;
@@ -87,15 +87,14 @@
     }
   }
 
-
   .arrow > .wrapper > .left {
     height: 30px;
     width: 110px;
     border-radius: 10px;
     background-color: white;
     position: absolute;
-    top: 82px;
-    left: 46px;
+    top: 75px;
+    left: 36px;
     transform: rotateZ(-45deg);
   }
   .arrow > .wrapper > .right {
@@ -104,8 +103,8 @@
     border-radius: 10px;
     background-color: white;
     position: absolute;
-    top: 82px;
-    right: 46px;
+    top: 75px;
+    right: 36px;
     transform: rotateZ(45deg);
   }
   .arrow > .wrapper > .axis {
@@ -114,8 +113,8 @@
     border-radius: 10px;
     background-color: white;
     position: absolute;
-    top: 80px;
-    left: 115px;
+    top: 70px;
+    left: 105px;
   }
 
   .timer {

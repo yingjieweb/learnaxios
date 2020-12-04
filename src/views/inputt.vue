@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <div class="title">
+    <div class="title" @click="initForm">
       <span>生成通行许可</span>
     </div>
     <div class="inputItem">
@@ -27,14 +27,18 @@
       return {
         form: {
           name: '小老弟',
-          stuId: '1201238',
+          stuId: '1881238',
           gateName: '南湖校区西门'
         }
       }
     },
     methods: {
+      initForm() {
+        this.form.name = '吴彦祖'
+        this.form.gateName = '浑南校区西门'
+      },
       showCode() {
-        if (this.form.name!=='' && this.form.stuId!=='' && this.gateName!=='') {
+        if (this.form.name !== '' && this.form.stuId !== '' && this.gateName !== '') {
           this.$emit('showCode', this.form)
         } else {
           alert('填写个人信息，老弟！')
@@ -81,7 +85,7 @@
   .preview {
     width: 100%;
     height: 40px;
-    font-size:18px;
+    font-size: 18px;
     line-height: 40px;
     text-align: center;
     color: #FBF6F6;
