@@ -6,8 +6,8 @@
 </template>
 
 <script>
-  import Inputt from './views/inputt'
-  import Outputt from './views/outputt'
+  import Inputt from './views/Inputt'
+  import Outputt from './views/Outputt'
 
   export default {
     name: 'app',
