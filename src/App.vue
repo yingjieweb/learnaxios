@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <Scan></Scan>
+
     <Inputt v-if="codeVisible" @showCode="showCode"></Inputt>
     <Outputt v-else :form="form"></Outputt>
   </div>
@@ -8,12 +10,14 @@
 <script>
   import Inputt from './views/Inputt'
   import Outputt from './views/Outputt'
+  import Scan from "./views/Scan"
 
   export default {
     name: 'app',
     components: {
       Inputt,
-      Outputt
+      Outputt,
+      Scan
     },
     data() {
       return {
