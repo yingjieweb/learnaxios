@@ -25,7 +25,7 @@
     props: {
       form: {
         type: Object,
-        default: function(){
+        default: function () {
           return {}
         }
       }
@@ -42,13 +42,13 @@
       getCurrentTime() {
         let date = new Date()
         let YY = date.getFullYear()
-        let MM = parseInt(date.getMonth()) < 10 ? '0'+date.getMonth() : date.getMonth()
-        let DD = parseInt(date.getDay()) < 10 ? '0'+date.getDay() : date.getDay()
-        let hh = parseInt(date.getHours()) < 10 ? '0'+date.getHours() : date.getHours()
-        let mm = parseInt(date.getMinutes()) < 10 ? '0'+date.getMinutes() : date.getMinutes()
-        let ss = parseInt(date.getSeconds()) < 10 ? '0'+date.getSeconds() : date.getSeconds()
+        let MM = parseInt(date.getMonth()) < 10 ? '0' + date.getMonth() : date.getMonth()
+        let DD = parseInt(date.getDate()) < 10 ? '0' + date.getDate() : date.getDate()
+        let hh = parseInt(date.getHours()) < 10 ? '0' + date.getHours() : date.getHours()
+        let mm = parseInt(date.getMinutes()) < 10 ? '0' + date.getMinutes() : date.getMinutes()
+        let ss = parseInt(date.getSeconds()) < 10 ? '0' + date.getSeconds() : date.getSeconds()
 
-        this.currentTime = `${YY}-${MM}-${DD} ${hh}:${mm}:${ss}`
+        this.currentTime = `${YY}-${++MM}-${DD} ${hh}:${mm}:${ss}`
       }
     }
   }
@@ -97,6 +97,7 @@
     left: 36px;
     transform: rotateZ(-45deg);
   }
+
   .arrow > .wrapper > .right {
     height: 30px;
     width: 110px;
@@ -107,6 +108,7 @@
     right: 36px;
     transform: rotateZ(45deg);
   }
+
   .arrow > .wrapper > .axis {
     width: 30px;
     height: 130px;
