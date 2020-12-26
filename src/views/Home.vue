@@ -9,7 +9,9 @@
   export default {
     name: "Home",
     methods: {
-      scan() {}
+      scan() {
+        // 唤起手机扫码功能
+      }
     }
   }
 </script>
