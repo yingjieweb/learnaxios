@@ -10,9 +10,7 @@
   "dependencies": {
     "axios": "^0.19.0",
     "core-js": "^2.6.5",
-    "vue": "^2.6.10",
-    "weixin-js-sdk": "^1.6.0",
-    "weixin-jsapi": "^1.1.0"
+    "vue": "^2.6.10"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.11.0",
