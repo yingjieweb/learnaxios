@@ -1,6 +1,9 @@
 <template>
   <div class="home">
-    <img src="../assets/home.png">
+    <img src="../assets/banner.png">
+    <img src="../assets/notice.png">
+    <img src="../assets/notice-item.png" v-for="index of 4" :key="index">
+    <img class="tabbar" src="../assets/tabbar.png">
     <div class="scan" @click="scan"></div>
   </div>
 </template>
@@ -10,7 +13,8 @@
     name: "Home",
     methods: {
       scan() {
-        // 唤起手机扫码功能
+        // 唤起手机扫码功能 -> 扫描完毕后 emit updateStatus 事件
+        this.$emit('updateStatus', 3)
       }
     }
   }
@@ -32,5 +36,11 @@
 
   img {
     width: 100%;
+  }
+
+  .tabbar {
+    position: fixed;
+    left: 0;
+    bottom: 0;
   }
 </style>

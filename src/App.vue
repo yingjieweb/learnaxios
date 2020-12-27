@@ -1,9 +1,10 @@
 <template>
   <div id="app">
-    <Home></Home>
+    <Inputt v-if="currentStatus === 1" @updateStatus="updateStatus"></Inputt>
 
-    <Inputt v-if="codeVisible" @showCode="showCode"></Inputt>
-    <Outputt v-else :form="form"></Outputt>
+    <Home v-if="currentStatus === 2"  @updateStatus="updateStatus"></Home>
+
+    <Outputt v-if="currentStatus === 3" :form="form"></Outputt>
   </div>
 </template>
 
@@ -21,7 +22,7 @@
     },
     data() {
       return {
-        codeVisible: true,
+        currentStatus: 1,
         form: {
           name: '',
           stuId: '',
@@ -30,9 +31,9 @@
       }
     },
     methods: {
-      showCode(form) {
-        this.codeVisible = false
-        this.form = form
+      updateStatus(status, form) {
+        this.currentStatus = status
+        form && (this.form = form)
       }
     }
   }

@@ -39,7 +39,7 @@
       },
       showCode() {
         if (this.form.name !== '' && this.form.stuId !== '' && this.gateName !== '') {
-          this.$emit('showCode', this.form)
+          this.$emit('updateStatus', 2, this.form)
         } else {
           alert('填写个人信息，老弟！')
         }
